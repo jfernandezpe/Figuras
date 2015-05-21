@@ -63,6 +63,10 @@ public class FiguraGeometrica {
 	public Color getColor(){
 		return color;
 	}
+	
+	public float getPerimetro(){
+		return perimetro;
+	}
 
 	
 	
