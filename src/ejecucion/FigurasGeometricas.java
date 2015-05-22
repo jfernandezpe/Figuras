@@ -2,14 +2,14 @@ package ejecucion;
 
 import java.awt.Color;
 
-import figurasGeometricas.Circulo;
-import figurasGeometricas.Cuadrado;
-import figurasGeometricas.FiguraGeometrica;
-import figurasGeometricas.PoligonoRegular;
+import figuras2d.Circulo;
+import figuras2d.Cuadrado;
+import figuras2d.FiguraGeometrica;
+import figuras2d.PoligonoRegular;
 
 public class FigurasGeometricas {
 	public static void main(String[] Args){
-		FiguraGeometrica circulo = new Circulo();
+		/*FiguraGeometrica circulo = new Circulo();
 		Circulo circulo2 = new Circulo();
 		
 		PoligonoRegular cuadrado = new Cuadrado();
@@ -43,7 +43,7 @@ public class FigurasGeometricas {
 		System.out.println(cuadrado.getColor());
 		System.out.println(cuadrado.getPerimetro());
 		System.out.println("===Cuadrado2 1===");
-		System.out.println(cuadrado2.getPerimetro());
+		System.out.println(cuadrado2.getPerimetro());*/
 		
 		
 	}
