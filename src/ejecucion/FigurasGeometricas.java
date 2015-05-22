@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import figuras2d.Circulo;
 import figuras2d.Cuadrado;
-import figuras2d.FiguraGeometrica;
+import figuras2d.Figura2D;
 import figuras2d.PoligonoRegular;
 
 public class FigurasGeometricas {

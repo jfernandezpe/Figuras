@@ -4,8 +4,7 @@ public class Cuadrado extends PoligonoRegular {
 	
 	public final int NUMLADOS = 4;
 	
-	public double calcularSuperficie(){
+	public void calcularSuperficie(){
 		superficie = longLados * longLados;
-		return superficie;
 	}
 }

@@ -9,10 +9,9 @@ public class Pentagono extends PoligonoRegular {
 		return apotema;
 	}
 	
-	public double calcularSuperficie(){
+	public void calcularSuperficie(){
 		calcularApotema(); //Por si hubiesen cambiado los lados
 		superficie = perimetro * apotema / 2;
-		return superficie;
 	}
 	
 }

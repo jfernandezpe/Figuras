@@ -5,11 +5,9 @@ public class Triangulo extends PoligonoRegular{
 	public final int NUMLADOS = 3;
 	private double altura = 0;
 		
-	public double calcularSuperficie(){
+	public void calcularSuperficie(){
 		calcularAltura(); //por si hubiesen variado los datos
 		superficie = longLados * altura / 2;
-		
-		return superficie;
 	}
 	
 	public double calcularAltura(){

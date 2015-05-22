@@ -1,16 +1,14 @@
 package figuras2d;
 
-public class Circulo extends FiguraGeometrica{
+public class Circulo extends Figura2D{
 	private double radio;
 	private double diametro;
 	
-	public double calcularPerimetro(){
+	public void calcularPerimetro(){
 		perimetro = 2 * Math.PI * radio;
-		return perimetro;
 	}
-	public double calcularArea(){
+	public void calcularSuperficie(){
 		superficie = 2 * Math.PI * Math.pow(radio,2);
-		return superficie;
 	}
 	
 	public double getRadio() {

@@ -1,13 +1,14 @@
 package figuras2d;
 
-public class PoligonoRegular extends FiguraGeometrica{
+public abstract class PoligonoRegular extends Figura2D{
 	public final int NUMLADOS = 0;
 	protected double longLados = 0;
 	
-	public double calcularPerimetro(){
+	public void calcularPerimetro(){
 		perimetro = longLados * NUMLADOS;
-		return perimetro;
 	}
+	
+	public abstract void calcularSuperficie();
 	
 	public void setLongLados(int lLados){
 		longLados = lLados;
