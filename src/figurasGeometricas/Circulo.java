@@ -1,25 +1,37 @@
 package figurasGeometricas;
 
 public class Circulo extends FiguraGeometrica{
-	private float radio;
-	private float diametro;
+	private double radio;
+	private double diametro;
 	
-	public float calcularPerimetro(){
-		perimetro = (float) (2 * Math.PI * radio);
+	public double calcularPerimetro(){
+		perimetro = 2 * Math.PI * radio;
 		return perimetro;
 	}
-	public float calcularArea(){
-		superficie = (float) (2 * Math.PI * Math.sqrt(radio));
+	public double calcularArea(){
+		superficie = 2 * Math.PI * Math.pow(radio,2);
 		return superficie;
 	}
 	
-	public void setRadio(Float rad){
-		radio = rad;
-		diametro = rad * 2;
+	public double getRadio() {
+		return radio;
 	}
 	
-	public void setDiametro(Float diame){
-		diametro = diame;
-		radio = diame / 2;
+	public void setRadio(double radio) {
+		this.radio = radio;
+		this.diametro = radio * 2;
+		calcularPerimetro();
+		calcularSuperficie();
+	}
+	
+	public double getDiametro() {
+		return diametro;
+	}
+	
+	public void setDiametro(double diametro) {
+		this.diametro = diametro;
+		this.radio = diametro/2;
+		calcularPerimetro();
+		calcularSuperficie();
 	}	
 }

@@ -5,45 +5,45 @@ import java.awt.Color;
 public class FiguraGeometrica {
 	private int[] posicion = new int[2];
 	private Color color;
-	protected float perimetro;
-	protected float superficie;
+	protected double perimetro;
+	protected double superficie;
 	
 	public FiguraGeometrica(){
 		
 	}
 	
-	public void FiguraGeomerica(Color col){
+	public FiguraGeometrica(Color col){
 		color = col;
 	}
 	
-	public void FiguraGeomerica(Color col, int pos[]){
+	public FiguraGeometrica(Color col, int pos[]){
 		color = col;
 		posicion[0] = pos[0];
 		posicion[1] = pos[1];
 	}
 	
-	public void FiguraGeomerica(Color col, int px, int py){
+	public FiguraGeometrica(Color col, int px, int py){
 		color = col;
 		posicion[0] = px;
 		posicion[1] = py;
 	}
 	
-	public void FiguraGeomerica(int pos[]){
+	public FiguraGeometrica(int pos[]){
 		posicion[0] = pos[0];
 		posicion[1] = pos[1];
 	}
 	
-	public void FiguraGeomerica(int px, int py){
+	public FiguraGeometrica(int px, int py){
 		posicion[0] = px;
 		posicion[1] = py;
 	}
 	
-	public float calcularPerimetro(){
-		return 0f;
+	protected double calcularPerimetro(){
+		return 0d;
 	}
 	
-	public float calcularSuperficie(){
-		return 0f;
+	protected double calcularSuperficie(){
+		return 0d;
 	}
 	
 	public void setPosicion(int px, int py){
@@ -64,8 +64,12 @@ public class FiguraGeometrica {
 		return color;
 	}
 	
-	public float getPerimetro(){
+	public double getPerimetro(){
 		return perimetro;
+	}
+	
+	public double getSuperficie(){
+		return superficie;
 	}
 
 	

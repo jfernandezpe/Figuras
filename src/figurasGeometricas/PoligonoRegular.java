@@ -1,19 +1,21 @@
 package figurasGeometricas;
 
 public class PoligonoRegular extends FiguraGeometrica{
-	protected int nLados;
-	protected float longLados;
+	protected int numLados = 0;
+	protected double longLados = 0;
 	
-	public float calcularPerimetro(){
-		perimetro = longLados * nLados;
+	public double calcularPerimetro(){
+		perimetro = longLados * numLados;
 		return perimetro;
 	}
 	
-	public void setNumLados(int numLados){
-		nLados = numLados;
+	protected void setNumLados(int nLados){
+		numLados = nLados;
 	}
 	
-	public void setLongLados(float lLados){
+	public void setLongLados(int lLados){
 		longLados = lLados;
+		calcularPerimetro();
+		calcularSuperficie();
 	}
 }
