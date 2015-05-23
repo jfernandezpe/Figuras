@@ -5,39 +5,36 @@ import java.awt.Color;
 import figuras.Figura;
 
 public abstract class Figura2D extends Figura {
-	protected int[] posicion = new int[2];
+	//protected int[] posicion = new int[2];
 	protected double perimetro;
 	protected double superficie;
 	
 	public Figura2D(){
-		
+		super();
 	}
 	
 	public Figura2D(Color col){
 		super(col);
 	}
-	
-	
+		
 	public Figura2D(Color col, int pos[]){
 		super(col);
-		posicion[0] = pos[0];
-		posicion[1] = pos[1];
+		setPosicion(pos);
 	}
 	
 	public Figura2D(Color col, int px, int py){
 		super(col);
-		posicion[0] = px;
-		posicion[1] = py;
+		setPosicion(px,py);
 	}
 	
 	public Figura2D(int pos[]){
-		posicion[0] = pos[0];
-		posicion[1] = pos[1];
+		super();
+		setPosicion(pos);
 	}
 	
 	public Figura2D(int px, int py){
-		posicion[0] = px;
-		posicion[1] = py;
+		super();
+		setPosicion(px,py);
 	}
 	
 	protected abstract void calcularPerimetro();
@@ -52,11 +49,14 @@ public abstract class Figura2D extends Figura {
 	}
 	
 	public void setPosicion(int px, int py){
+		posicion = new int[2];
 		posicion[0] = px;
 		posicion[1] = py;
+		System.out.println("DD"+posicion[1]);
 	}
 	
 	public void setPosicion(int pos[]){
+		posicion = new int[2];		
 		posicion[0] = pos[0];
 		posicion[1] = pos[1];
 	}

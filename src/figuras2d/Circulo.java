@@ -1,13 +1,41 @@
 package figuras2d;
 
+import java.awt.Color;
+
 public class Circulo extends Figura2D{
 	private double radio;
 	private double diametro;
 	
-	public void calcularPerimetro(){
+	public Circulo(){
+		super();
+	}
+	
+	public Circulo(Color col){
+		super(col);
+	}
+		
+	public Circulo(Color col, int pos[]){
+		super(col,pos);
+	}
+	
+	public Circulo(Color col, int px, int py){
+		super(col,px,py);
+	}
+	
+	public Circulo(int pos[]){
+		super(pos);
+	}
+	
+	public Circulo(int px, int py){
+		super(px,py);
+	}
+	
+	
+	
+	protected void calcularPerimetro(){
 		perimetro = 2 * Math.PI * radio;
 	}
-	public void calcularSuperficie(){
+	protected void calcularSuperficie(){
 		superficie = 2 * Math.PI * Math.pow(radio,2);
 	}
 	

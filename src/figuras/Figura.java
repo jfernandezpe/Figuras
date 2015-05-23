@@ -12,9 +12,7 @@ public abstract class Figura {
 	public Figura(Color color){
 		this.color = color;
 	}
-	
-	public abstract void setPosicion();
-	
+		
 	public int[] getPosicion(){
 		return posicion;
 	}
