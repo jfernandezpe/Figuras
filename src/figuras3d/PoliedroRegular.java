@@ -3,28 +3,27 @@ package figuras3d;
 import java.awt.Color;
 
 public abstract class PoliedroRegular extends Figura3D{
-	public final int NUMCARAS = 0;
+	public int numCaras = 0;
 	protected double longLados = 0;
 	protected double superficieCara;
 	
 	public PoliedroRegular(){
-		
+		super();
 	}
 	
 	public PoliedroRegular(Color color){
+		super(color);
 	}
 
 	protected void calcularSuperficieTotal(){
-		superficieTotal = superficieCara * NUMCARAS;
+		superficieTotal = superficieCara * numCaras;
 	}
 	
 	protected abstract void calcularVolumen();
 	
 	public void setLongLados(double longLados){
 		this.longLados = longLados;
-		actualizarFigura();
-		calcularSuperficieTotal();
-		calcularVolumen();
+		actualizarFigura(this.longLados);
 	}
 	public double getLongLados(){
 		return longLados;
@@ -32,5 +31,12 @@ public abstract class PoliedroRegular extends Figura3D{
 	
 	public double getSuperficieCara(){
 		return superficieCara;
+	}
+	
+	protected abstract void actualizarFigura(double lLados);
+	
+	public int setNumCaras(int num){
+		numCaras = num;
+		return numCaras;
 	}
 }

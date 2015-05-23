@@ -36,7 +36,7 @@ public abstract class PoligonoRegular extends Figura2D{
 	
 	public abstract void calcularSuperficie();
 	
-	public void setLongLados(int lLados){
+	public void setLongLados(double lLados){
 		longLados = lLados;
 		calcularPerimetro();
 		calcularSuperficie();

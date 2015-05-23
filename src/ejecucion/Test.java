@@ -4,9 +4,12 @@ import java.awt.Color;
 
 import figuras2d.Circulo;
 import figuras2d.Cuadrado;
+import figuras2d.Pentagono;
 
 public class Test {
 	public static void main(String[] Args){
+		int ar[];
+		
 		Circulo circulo = new Circulo();
 		circulo.setColor(Color.RED);
 		circulo.setPosicion(4,5);
@@ -16,7 +19,7 @@ public class Test {
 		System.out.println(circulo.getDiametro());
 		System.out.println(circulo.getPerimetro());
 		System.out.println(circulo.getSuperficie());
-		int ar[] = circulo.getPosicion();
+		ar = circulo.getPosicion();
 		System.out.println(ar[0]);
 		System.out.println(ar[1]);
 		
@@ -32,6 +35,28 @@ public class Test {
 		System.out.println(cuadrado.numLados);
 		System.out.println(cuadrado.getPerimetro());
 		System.out.println(cuadrado.getSuperficie());
+		ar = cuadrado.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);		
+		System.out.println("________________");
+		Pentagono pentagono = new Pentagono();
+		pentagono.setColor(Color.RED);
+		pentagono.setPosicion(4,5);
+		pentagono.setLongLados(5);
+		System.out.println(pentagono.getColor());
+		System.out.println(pentagono.getLongLados());
+		System.out.println(pentagono.numLados);
+		System.out.println(pentagono.getPerimetro());
+		System.out.println(pentagono.getSuperficie());
+		ar = pentagono.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);
+		
+		System.out.println("==============");
+		cuadrado.setLongLados(4);
+		System.out.println(cuadrado.getSuperficie());
+		System.out.println(cuadrado.getPerimetro());
+		System.out.println(cuadrado.getLongLados());
 		
 		
 	}

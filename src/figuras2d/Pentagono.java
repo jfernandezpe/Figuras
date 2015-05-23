@@ -4,7 +4,6 @@ import java.awt.Color;
 
 public class Pentagono extends PoligonoRegular {
 	public int numLados = super.setNumLados(5);
-	private double apotema = 0;
 	
 	public Pentagono(){
 		super();
@@ -29,14 +28,11 @@ public class Pentagono extends PoligonoRegular {
 	public Pentagono(int px, int py){
 		super(px,py);
 	}
-	
-	public double calcularApotema(){
-		apotema = longLados * Math.tan(54) / 2;
-		return apotema;
-	}
-	
+		
 	public void calcularSuperficie(){
-		calcularApotema(); //Por si hubiesen cambiado los lados
-		superficie = perimetro * apotema / 2;
+		superficie = numLados * Math.pow(longLados,2);
+		double tangenciable = Math.tan(Math.toRadians(360 / numLados / 2));
+		
+		superficie = superficie / (4 * tangenciable);
 	}
 }
