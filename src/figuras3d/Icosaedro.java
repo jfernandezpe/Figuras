@@ -4,16 +4,16 @@ import java.awt.Color;
 
 import figuras2d.Triangulo;
 
-public class Isocaedro extends PoliedroRegular {
+public class Icosaedro extends PoliedroRegular {
 	protected int numCaras = setNumCaras(20);
 	private Triangulo figura2d;
 	
-	public Isocaedro(){
+	public Icosaedro(){
 		super();
 		generarCara();
 	}
 	
-	public Isocaedro(Color color){
+	public Icosaedro(Color color){
 		super(color);
 		generarCara();
 	}

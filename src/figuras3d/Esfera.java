@@ -1,8 +1,18 @@
 package figuras3d;
 
+import java.awt.Color;
+
 public class Esfera extends Figura3D {
 	private double radio;
 	private double diametro;
+	
+	public Esfera(){
+		super();
+	}
+	
+	public Esfera(Color color){
+		super(color);
+	}
 	
 	protected void calcularSuperficieTotal(){
 		superficieTotal = 4 * Math.PI * Math.pow(radio, 2);

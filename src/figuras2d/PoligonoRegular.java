@@ -30,6 +30,10 @@ public abstract class PoligonoRegular extends Figura2D{
 		super(px,py);
 	}
 	
+	public int getNumLados(){
+		return numLados;
+	}
+	
 	public void calcularPerimetro(){
 		perimetro = longLados * this.numLados;
 	}

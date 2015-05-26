@@ -19,6 +19,10 @@ public abstract class PoliedroRegular extends Figura3D{
 		superficieTotal = superficieCara * numCaras;
 	}
 	
+	public int getNumCaras(){
+		return numCaras;
+	}
+	
 	protected abstract void calcularVolumen();
 	
 	public void setLongLados(double longLados){

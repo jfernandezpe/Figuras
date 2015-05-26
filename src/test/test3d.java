@@ -1,11 +1,11 @@
-package ejecucion;
+package test;
 
 import java.awt.Color;
 
 import figuras3d.Cubo;
 import figuras3d.Dodecaedro;
 import figuras3d.Esfera;
-import figuras3d.Isocaedro;
+import figuras3d.Icosaedro;
 import figuras3d.Octaedro;
 import figuras3d.Tetaedro;
 

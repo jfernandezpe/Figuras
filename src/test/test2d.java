@@ -1,4 +1,4 @@
-package ejecucion;
+package test;
 
 import java.awt.Color;
 
@@ -7,7 +7,7 @@ import figuras2d.Cuadrado;
 import figuras2d.Pentagono;
 import figuras2d.Triangulo;
 
-public class Test {
+public class Test2d {
 	public static void main(String[] Args){
 		int ar[];
 		
