@@ -1,13 +1,35 @@
 package figuras3d;
 
+import java.awt.Color;
+
+import figuras2d.Triangulo;
+
 public class Octaedro extends PoliedroRegular {
-	public final int NUMCARAS = 20;
+	protected int numCaras = setNumCaras(8);
+	private Triangulo figura2d;
 	
-	protected void calcularVolumen(){
-		System.out.println("implementar metodo");
+	public Octaedro(){
+		super();
+		generarCara();
 	}
 	
-	protected void actualizarFigura(){
-		System.out.println("implementar metodo");
+	public Octaedro(Color color){
+		super(color);
+		generarCara();
+	}
+	
+	private void generarCara(){
+		figura2d = new Triangulo();
+	}	
+	
+	protected void calcularVolumen(){
+		volumen = 1d / 3d * Math.sqrt(2) * Math.pow(figura2d.getLongLados(),3);
+	}
+	
+	protected void actualizarFigura(double lLados){
+		figura2d.setLongLados(lLados);
+		superficieCara = figura2d.getSuperficie();
+		calcularSuperficieTotal();
+		calcularVolumen();
 	}
 }

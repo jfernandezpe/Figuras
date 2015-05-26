@@ -23,7 +23,7 @@ public class Tetaedro extends PoliedroRegular {
 	}	
 
 	protected void calcularVolumen(){
-		volumen = Math.sqrt(2) / 12 * Math.pow(figura2d.getLongLados(),3);
+		volumen = Math.sqrt(2) * Math.pow(figura2d.getLongLados(),3) / 12d;
 	}
 		
 	protected void actualizarFigura(double lLados) {
