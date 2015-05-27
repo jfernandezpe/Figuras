@@ -13,6 +13,8 @@ import figuras2d.Triangulo;
 
 public class FigurasGeometricas {
 	private static Ventana ventana;
+	
+	//Hilo de ejecución principal
 	public static void main(String[] Args){
 		ventana = crearVentana();
 		int opcion = 0;
@@ -46,6 +48,7 @@ public class FigurasGeometricas {
 		}
 	}
 	
+	//Menú para las figuras 2d.
 	private static void figuras2d(){
 		int opcion = 0;
 		while (opcion == 0) {
@@ -67,25 +70,25 @@ public class FigurasGeometricas {
 				case 1:
 					Circulo circulo = Figuras2d.circulo();
 					ventana.add(circulo);
-					ventana.volverPintar();
+					ventana.repaint();
 					opcion = 0;
 					break;
 				case 3: 
 					Triangulo triangulo = Figuras2d.triangulo();
 					ventana.add(triangulo);
-					ventana.volverPintar();
+					ventana.repaint();
 					opcion = 0;
 					break;
 				case 4: 
 					Cuadrado cuadrado = Figuras2d.cuadrado();
 					ventana.add(cuadrado);
-					ventana.volverPintar();
+					ventana.repaint();
 					opcion = 0;
 					break;
 				case 5: 
 					Pentagono pentagono = Figuras2d.pentagono();
 					ventana.add(pentagono);
-					ventana.volverPintar();
+					ventana.repaint();
 					opcion = 0;
 					break;
 				case 99:
@@ -95,6 +98,7 @@ public class FigurasGeometricas {
 		}
 	}
 	
+	//Menú para las figuras 3d
 	private static void figuras3d(){
 		int opcion = 0;
 		while (opcion == 0) {
@@ -145,6 +149,7 @@ public class FigurasGeometricas {
 		}
 	}
 	
+	//Creación de la ventana
 	public static Ventana crearVentana(){
 		JFrame frame = new JFrame("frame");
 		Ventana ventana = new Ventana();

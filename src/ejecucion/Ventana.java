@@ -30,6 +30,7 @@ public class Ventana extends JPanel {
 		listaPentagonos = new ArrayList<Pentagono>();
 	}
 	
+	//Se recorren las diversas formas geometricas para pintarlas.
 	 public void paintComponent(Graphics g){
 		 super.paintComponent(g);
 		 Iterator<Circulo> iCirculos = listaCirculos.iterator();  
@@ -54,6 +55,7 @@ public class Ventana extends JPanel {
 		 }
 	 }
 	 
+	 //Se añaden distintos elementos a la pantalla (sobrecargado)
 	 public void add(Circulo circulo){
 		 listaCirculos.add(circulo);
 	 }
@@ -67,13 +69,4 @@ public class Ventana extends JPanel {
 	 public void add(Pentagono pentagono){
 		 listaPentagonos.add(pentagono);
 	 }
-	 
-	 
-	 public void volverPintar(){
-		 repaint();  
-	 }
-	
-	public static void inicializar(){
-		
-	}
 }

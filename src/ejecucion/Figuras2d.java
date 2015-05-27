@@ -9,6 +9,7 @@ import figuras2d.Cuadrado;
 import figuras2d.Pentagono;
 import figuras2d.Triangulo;
 
+//Define y muestra en la consola las figuras 2D
 public class Figuras2d {
 	static Color color;
 	static double longLados;
@@ -20,6 +21,7 @@ public class Figuras2d {
 	static double superficie;
 	static int numLados;
 
+	//Circulo
 	public static Circulo circulo() {
 		color = getColor();
 		diametro = UtilsUI.getConsoleDouble("Introduce un diametro: ");
@@ -30,6 +32,7 @@ public class Figuras2d {
 		circulo.setDiametro(diametro);
 		posicion = circulo.getPosicion();
 		
+		//Imprimir información del poligono
 		System.out.println("Calculo un circulo:");
 		System.out.println("Color. "+circulo.getColor());
 		System.out.println("Posicion "+posicion[0]+ "x" +posicion[1]);
@@ -39,6 +42,7 @@ public class Figuras2d {
 		return circulo;
 	}
 
+	//Triangulo
 	public static Triangulo triangulo() {
 		color = getColor();
 		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
@@ -53,6 +57,7 @@ public class Figuras2d {
 		return figura2d;
 	}
 
+	//Cuadrado
 	public static Cuadrado cuadrado() {
 		color = getColor();
 		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
@@ -66,6 +71,7 @@ public class Figuras2d {
 		return figura2d;
 	}
 
+	//Pentagono
 	public static Pentagono pentagono() {
 		color = getColor();
 		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
@@ -79,6 +85,7 @@ public class Figuras2d {
 		return figura2d;
 	}
 	
+	//Obtener color.
 	public static Color getColor(String listaColores[]){
 		Color color;
 		
@@ -97,7 +104,7 @@ public class Figuras2d {
 		String listaColores[] = {"rojo", "verde", "azul"};
 		return getColor(listaColores);
 	}
-	
+	//Imprimir información del poligon
 	public static void imprimirPoligono(int numLados,Color color,int[] posicion, double longLados,double superficie, double perimetro){
 		System.out.println("Calculo un poligono de "+ numLados +" lados");
 		System.out.println("Posicion "+posicion[0]+"x"+posicion[1]+"y");

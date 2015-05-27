@@ -11,6 +11,7 @@ import figuras3d.Icosaedro;
 import figuras3d.Octaedro;
 import figuras3d.Tetaedro;
 
+//Define y muestra en la consola las figuras 2D
 public class Figuras3d {
 	static String nombre;
 	static Color color;
@@ -19,6 +20,7 @@ public class Figuras3d {
 	static int posz;
 	static double longLados;
 	
+	//Esfera
 	public static void esfera() {
 		nombre = "esfera";
 		color = Figuras2d.getColor();
@@ -33,6 +35,7 @@ public class Figuras3d {
 		figura3d.setRadio(longLados);
 		int[] posicion = figura3d.getPosicion();
 
+		//imprime información de la esfera
 		System.out.println("Calculo una "+nombre);
 		System.out.println("Posicion "+posicion[0]+"x"+posicion[1]+"y"+posicion[2]+"z");
 		System.out.println("Color. "+figura3d.getColor());
@@ -40,6 +43,7 @@ public class Figuras3d {
 		System.out.println("Superficie total: "+figura3d.getSuperficieTotal()+" Volumen: "+figura3d.getVolumen());			
 	}
 
+	//Tetaedro
 	public static void tetaedro() {
 		nombre = "tetaedro";
 		color = Figuras2d.getColor();
@@ -54,7 +58,8 @@ public class Figuras3d {
 		figura3d.setLongLados(longLados);
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 	}
-
+	
+	//Cubo
 	public static void cubo() {
 		nombre = "cubo";
 		color = Figuras2d.getColor();
@@ -71,6 +76,7 @@ public class Figuras3d {
 		
 	}
 
+	//Octaedro
 	public static void octaedro() {
 		nombre = "octaedro";
 		color = Figuras2d.getColor();
@@ -86,7 +92,8 @@ public class Figuras3d {
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 	
 	}
-
+	
+	//Dodecaedro
 	public static void dodecaedro() {
 		nombre = "dodecaedro";
 		color = Figuras2d.getColor();
@@ -102,6 +109,7 @@ public class Figuras3d {
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 	}
 
+	//Isocaedro
 	public static void isocaedro() {
 		nombre = "Icosaedro";
 		color = Figuras2d.getColor();
@@ -117,6 +125,7 @@ public class Figuras3d {
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());				
 	}
 	
+	//Imprime información del poliedro
 	public static void imprimirPoliedro(int numLados,String nombre, Color color,int[] posicion, double longLados, double volumen, double superficie, double superficieCara){
 		System.out.println("Calculo un "+nombre+" (poliedro de "+ numLados +" caras)");
 		System.out.println("Posicion "+posicion[0]+"x"+posicion[1]+"y"+posicion[2]+"z");
