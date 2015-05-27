@@ -1,3 +1,4 @@
+// .src/ejecucion/Figuras2d.java
 package ejecucion;
 
 import java.awt.Color;
@@ -11,7 +12,7 @@ import figuras2d.Triangulo;
 public class Figuras2d {
 	static Color color;
 	static double longLados;
-	static double radio;
+	static double diametro;
 	static int posx;
 	static int posy;
 	static int posicion[];
@@ -19,24 +20,26 @@ public class Figuras2d {
 	static double superficie;
 	static int numLados;
 
-	public static void circulo() {
+	public static Circulo circulo() {
 		color = getColor();
-		radio = UtilsUI.getConsoleDouble("Introduce un radio: ");
+		diametro = UtilsUI.getConsoleDouble("Introduce un diametro: ");
 		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
 		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
 		Circulo circulo = new Circulo(color);
 		circulo.setPosicion(posx,posy);
-		circulo.setRadio(radio);
+		circulo.setDiametro(diametro);
 		posicion = circulo.getPosicion();
 		
 		System.out.println("Calculo un circulo:");
 		System.out.println("Color. "+circulo.getColor());
 		System.out.println("Posicion "+posicion[0]+ "x" +posicion[1]);
 		System.out.println("Radio: "+circulo.getRadio()+" Diametro "+circulo.getDiametro());
-		System.out.println("Superficie: "+circulo.getSuperficie()+" Perimetro "+circulo.getPerimetro());		
+		System.out.println("Superficie: "+circulo.getSuperficie()+" Perimetro "+circulo.getPerimetro());
+		
+		return circulo;
 	}
 
-	public static void triangulo() {
+	public static Triangulo triangulo() {
 		color = getColor();
 		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
 		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
@@ -47,9 +50,10 @@ public class Figuras2d {
 
 		imprimirPoligono(figura2d.getNumLados(), figura2d.getColor(), figura2d.getPosicion(),  figura2d.getLongLados(), figura2d.getSuperficie(), figura2d.getPerimetro());
 	
+		return figura2d;
 	}
 
-	public static void cuadrado() {
+	public static Cuadrado cuadrado() {
 		color = getColor();
 		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
 		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
@@ -59,9 +63,10 @@ public class Figuras2d {
 		figura2d.setLongLados(longLados);
 
 		imprimirPoligono(figura2d.getNumLados(), figura2d.getColor(), figura2d.getPosicion(), figura2d.getLongLados(), figura2d.getSuperficie(), figura2d.getPerimetro());
+		return figura2d;
 	}
 
-	public static void pentagono() {
+	public static Pentagono pentagono() {
 		color = getColor();
 		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
 		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
@@ -71,6 +76,7 @@ public class Figuras2d {
 		figura2d.setLongLados(longLados);
 
 		imprimirPoligono(figura2d.getNumLados(), figura2d.getColor(), figura2d.getPosicion(), figura2d.getLongLados(), figura2d.getSuperficie(), figura2d.getPerimetro());
+		return figura2d;
 	}
 	
 	public static Color getColor(String listaColores[]){

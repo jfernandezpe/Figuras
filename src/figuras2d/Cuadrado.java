@@ -1,3 +1,4 @@
+// .src/figuras2d/Cuadrado.java
 package figuras2d;
 
 import java.awt.Color;
@@ -30,7 +31,7 @@ public class Cuadrado extends PoligonoRegular {
 		super(px,py);
 	}
 	
-	public void calcularSuperficie(){
+	protected void calcularSuperficie(){
 		superficie = longLados * longLados;
 	}
 }

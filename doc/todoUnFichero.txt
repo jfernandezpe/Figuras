@@ -1,0 +1,1261 @@
+package ejecucion;
+
+import java.awt.Color;
+
+import consoleUI.UtilsUI;
+import figuras2d.Circulo;
+import figuras2d.Cuadrado;
+import figuras2d.Pentagono;
+import figuras2d.Triangulo;
+
+public class Figuras2d {
+	static Color color;
+	static double longLados;
+	static double diametro;
+	static int posx;
+	static int posy;
+	static int posicion[];
+	static double perimetro;
+	static double superficie;
+	static int numLados;
+
+	public static Circulo circulo() {
+		color = getColor();
+		diametro = UtilsUI.getConsoleDouble("Introduce un diametro: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		Circulo circulo = new Circulo(color);
+		circulo.setPosicion(posx,posy);
+		circulo.setDiametro(diametro);
+		posicion = circulo.getPosicion();
+		
+		System.out.println("Calculo un circulo:");
+		System.out.println("Color. "+circulo.getColor());
+		System.out.println("Posicion "+posicion[0]+ "x" +posicion[1]);
+		System.out.println("Radio: "+circulo.getRadio()+" Diametro "+circulo.getDiametro());
+		System.out.println("Superficie: "+circulo.getSuperficie()+" Perimetro "+circulo.getPerimetro());
+		
+		return circulo;
+	}
+
+	public static Triangulo triangulo() {
+		color = getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		Triangulo figura2d = new Triangulo(color);
+		figura2d.setPosicion(posx,posy);
+		figura2d.setLongLados(longLados);
+
+		imprimirPoligono(figura2d.getNumLados(), figura2d.getColor(), figura2d.getPosicion(),  figura2d.getLongLados(), figura2d.getSuperficie(), figura2d.getPerimetro());
+	
+		return figura2d;
+	}
+
+	public static Cuadrado cuadrado() {
+		color = getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		Cuadrado figura2d = new Cuadrado(color);
+		figura2d.setPosicion(posx,posy);
+		figura2d.setLongLados(longLados);
+
+		imprimirPoligono(figura2d.getNumLados(), figura2d.getColor(), figura2d.getPosicion(), figura2d.getLongLados(), figura2d.getSuperficie(), figura2d.getPerimetro());
+		return figura2d;
+	}
+
+	public static Pentagono pentagono() {
+		color = getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		Pentagono figura2d = new Pentagono(color);
+		figura2d.setPosicion(posx,posy);
+		figura2d.setLongLados(longLados);
+
+		imprimirPoligono(figura2d.getNumLados(), figura2d.getColor(), figura2d.getPosicion(), figura2d.getLongLados(), figura2d.getSuperficie(), figura2d.getPerimetro());
+		return figura2d;
+	}
+	
+	public static Color getColor(String listaColores[]){
+		Color color;
+		
+		String col = UtilsUI.getCololeOption("Introduce un color(Rojo, verde o azul):",listaColores);
+		if (col.equals("rojo")){
+			color = Color.RED;
+		} else if (col.equals("verde")){
+			color = Color.GREEN;
+		} else {
+			color = Color.BLUE;
+		}
+		return color;
+	}
+	
+	public static Color getColor(){
+		String listaColores[] = {"rojo", "verde", "azul"};
+		return getColor(listaColores);
+	}
+	
+	public static void imprimirPoligono(int numLados,Color color,int[] posicion, double longLados,double superficie, double perimetro){
+		System.out.println("Calculo un poligono de "+ numLados +" lados");
+		System.out.println("Posicion "+posicion[0]+"x"+posicion[1]+"y");
+		System.out.println("Color. "+color);
+		System.out.println("Longitud lados: "+longLados);
+		System.out.println("Superficie: "+superficie+ " Perimetro: "+perimetro);
+	}
+	
+
+}
+package ejecucion;
+
+import java.awt.Color;
+
+import consoleUI.UtilsUI;
+import figuras3d.Cubo;
+import figuras3d.Dodecaedro;
+import figuras3d.Esfera;
+import figuras3d.Icosaedro;
+import figuras3d.Octaedro;
+import figuras3d.Tetaedro;
+
+public class Figuras3d {
+	static String nombre;
+	static Color color;
+	static int posx;
+	static int posy;
+	static int posz;
+	static double longLados;
+	
+	public static void esfera() {
+		nombre = "esfera";
+		color = Figuras2d.getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del radio: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		posz = UtilsUI.getConsoleInt("Introduce una coordenada en Z [150]", 150);
+		
+		
+		Esfera figura3d = new Esfera(color);
+		figura3d.setPosicion(posx, posy, posz);
+		figura3d.setRadio(longLados);
+		int[] posicion = figura3d.getPosicion();
+
+		System.out.println("Calculo una "+nombre);
+		System.out.println("Posicion "+posicion[0]+"x"+posicion[1]+"y"+posicion[2]+"z");
+		System.out.println("Color. "+figura3d.getColor());
+		System.out.println("Radio: "+figura3d.getRadio()+" Diametro "+figura3d.getDiametro());
+		System.out.println("Superficie total: "+figura3d.getSuperficieTotal()+" Volumen: "+figura3d.getVolumen());			
+	}
+
+	public static void tetaedro() {
+		nombre = "tetaedro";
+		color = Figuras2d.getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		posz = UtilsUI.getConsoleInt("Introduce una coordenada en Z [150]", 150);
+		
+		
+		Tetaedro figura3d = new Tetaedro(color);
+		figura3d.setPosicion(posx, posy, posz);
+		figura3d.setLongLados(longLados);
+		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
+	}
+
+	public static void cubo() {
+		nombre = "cubo";
+		color = Figuras2d.getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		posz = UtilsUI.getConsoleInt("Introduce una coordenada en Z [150]", 150);
+		
+		
+		Cubo figura3d = new Cubo(color);
+		figura3d.setPosicion(posx, posy, posz);
+		figura3d.setLongLados(longLados);
+		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
+		
+	}
+
+	public static void octaedro() {
+		nombre = "octaedro";
+		color = Figuras2d.getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		posz = UtilsUI.getConsoleInt("Introduce una coordenada en Z [150]", 150);
+		
+		
+		Octaedro figura3d = new Octaedro(color);
+		figura3d.setPosicion(posx, posy, posz);
+		figura3d.setLongLados(longLados);
+		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
+	
+	}
+
+	public static void dodecaedro() {
+		nombre = "dodecaedro";
+		color = Figuras2d.getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		posz = UtilsUI.getConsoleInt("Introduce una coordenada en Z [150]", 150);
+		
+		
+		Dodecaedro figura3d = new Dodecaedro(color);
+		figura3d.setPosicion(posx, posy, posz);
+		figura3d.setLongLados(longLados);
+		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
+	}
+
+	public static void isocaedro() {
+		nombre = "Icosaedro";
+		color = Figuras2d.getColor();
+		longLados = UtilsUI.getConsoleDouble("Introduce la longitud del lado: ");
+		posx = UtilsUI.getConsoleInt("Introduce una coordenada en X [50]", 50);
+		posy = UtilsUI.getConsoleInt("Introduce una coordenada en Y [100]", 100);
+		posz = UtilsUI.getConsoleInt("Introduce una coordenada en Z [150]", 150);
+		
+		
+		Icosaedro figura3d = new Icosaedro(color);
+		figura3d.setPosicion(posx, posy, posz);
+		figura3d.setLongLados(longLados);
+		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());				
+	}
+	
+	public static void imprimirPoliedro(int numLados,String nombre, Color color,int[] posicion, double longLados, double volumen, double superficie, double superficieCara){
+		System.out.println("Calculo un "+nombre+" (poliedro de "+ numLados +" caras)");
+		System.out.println("Posicion "+posicion[0]+"x"+posicion[1]+"y"+posicion[2]+"z");
+		System.out.println("Color. "+color);
+		System.out.println("Longitud lados: "+longLados+" Volumen: "+volumen);
+		System.out.println("Superficie total: "+superficie +" Superficie cara: "+superficieCara);
+	}
+
+
+
+}
+package ejecucion;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+
+import consoleUI.UtilsUI; // https://github.com/jfernandezpe/Utils
+import figuras2d.Circulo;
+import figuras2d.Cuadrado;
+import figuras2d.Pentagono;
+import figuras2d.Triangulo;
+
+public class FigurasGeometricas {
+	private static Ventana ventana;
+	public static void main(String[] Args){
+		ventana = crearVentana();
+		int opcion = 0;
+		while (opcion == 0) {
+			String texto = "Elige una opción: \n"
+					//+ "1) Figuras \n"
+					+ "1) Figuras 2D\n"
+					+ "2) Figuras 3D\n"
+					+ "q) Salir\n";
+			opcion = UtilsUI.menu(texto);
+			
+			switch (opcion)
+			{
+				default:
+					System.out.println("No se ha encontrado la opción, vuelve a intentarlo");
+					opcion = 0;
+					break;
+				case 1:
+					figuras2d();
+					opcion = 0;
+					break;
+				case 2: 
+					figuras3d();
+					opcion = 0;
+					break;
+				case 99:
+					opcion = 99;
+					System.out.println("¡Hasta luego!");	
+			}
+				
+		}
+	}
+	
+	private static void figuras2d(){
+		int opcion = 0;
+		while (opcion == 0) {
+			String texto = "¿Qué figura quieres calcular? \n"
+					+ "1) Circulo \n"
+					//+ "2) Línea\n"
+					+ "3) Triangulo\n"
+					+ "4) Cuadrado\n"
+					+ "5) Pentagono\n"
+					+ "q) Atrás\n";
+			opcion = UtilsUI.menu(texto);
+			
+			switch (opcion)
+			{
+				default:
+					System.out.println("No se ha encontrado la opción, vuelve a intentarlo");
+					opcion = 0;
+					break;
+				case 1:
+					Circulo circulo = Figuras2d.circulo();
+					ventana.add(circulo);
+					ventana.volverPintar();
+					opcion = 0;
+					break;
+				case 3: 
+					Triangulo triangulo = Figuras2d.triangulo();
+					ventana.add(triangulo);
+					ventana.volverPintar();
+					opcion = 0;
+					break;
+				case 4: 
+					Cuadrado cuadrado = Figuras2d.cuadrado();
+					ventana.add(cuadrado);
+					ventana.volverPintar();
+					opcion = 0;
+					break;
+				case 5: 
+					Pentagono pentagono = Figuras2d.pentagono();
+					ventana.add(pentagono);
+					ventana.volverPintar();
+					opcion = 0;
+					break;
+				case 99:
+					opcion = 99;
+			}
+				
+		}
+	}
+	
+	private static void figuras3d(){
+		int opcion = 0;
+		while (opcion == 0) {
+			String texto = "¿Qué figura quieres calcular? \n"
+					+ "1) Esfera\n"
+					+ "2) Tetaedro \n"
+					+ "3) Cubo\n"
+					+ "4) Octaedro\n"
+					+ "5) Dodecaedro\n"
+					+ "6) Isocaedro\n"
+					+ "q) Atrás\n";
+			opcion = UtilsUI.menu(texto);
+			
+			switch (opcion)
+			{
+				default:
+					System.out.println("No se ha encontrado la opción, vuelve a intentarlo");
+					opcion = 0;
+					break;
+				case 1:
+					Figuras3d.esfera();
+					opcion = 0;
+					break;
+				case 2:
+					Figuras3d.tetaedro();
+					opcion = 0;
+					break;
+				case 3: 
+					Figuras3d.cubo();
+					opcion = 0;
+					break;
+				case 4: 
+					Figuras3d.octaedro();
+					opcion = 0;
+					break;
+				case 5: 
+					Figuras3d.dodecaedro();
+					opcion = 0;
+					break;
+				case 6: 
+					Figuras3d.isocaedro();
+					opcion = 0;
+					break;
+				case 99:
+					opcion = 99;
+			}
+					
+		}
+	}
+	
+	public static Ventana crearVentana(){
+		JFrame frame = new JFrame("frame");
+		Ventana ventana = new Ventana();
+		frame.add(ventana, BorderLayout.CENTER);
+		frame.setSize(800,600);
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setTitle("Figuras 2D");
+		return ventana;
+	}
+}
+package ejecucion;
+
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.JPanel;
+
+import figuras2d.Circulo;
+import figuras2d.Cuadrado;
+import figuras2d.Pentagono;
+import figuras2d.Triangulo;
+
+public class Ventana extends JPanel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	ArrayList<Circulo> listaCirculos; 
+	ArrayList<Triangulo> listaTriangulos; 
+	ArrayList<Cuadrado> listaCuadrados; 
+	ArrayList<Pentagono> listaPentagonos; 
+	
+	public Ventana(){        
+		listaCirculos = new ArrayList<Circulo>();
+		listaTriangulos = new ArrayList<Triangulo>();
+		listaCuadrados = new ArrayList<Cuadrado>();
+		listaPentagonos = new ArrayList<Pentagono>();
+	}
+	
+	 public void paintComponent(Graphics g){
+		 super.paintComponent(g);
+		 Iterator<Circulo> iCirculos = listaCirculos.iterator();  
+		 while(iCirculos.hasNext()){
+			 Circulo figura2d = iCirculos.next();
+			 figura2d.pintar(g);
+		 }
+		 Iterator<Triangulo> iTriangulos = listaTriangulos.iterator();  
+		 while(iTriangulos.hasNext()){
+			 Triangulo figura2d = iTriangulos.next();
+			 figura2d.pintar(g);
+		 }
+		 Iterator<Cuadrado> iCuadrados = listaCuadrados.iterator();  
+		 while(iCuadrados.hasNext()){
+			 Cuadrado figura2d = iCuadrados.next();
+			 figura2d.pintar(g);
+		 }
+		 Iterator<Pentagono> iPentagonos = listaPentagonos.iterator();  
+		 while(iPentagonos.hasNext()){
+			 Pentagono figura2d = iPentagonos.next();
+			 figura2d.pintar(g);
+		 }
+	 }
+	 
+	 public void add(Circulo circulo){
+		 listaCirculos.add(circulo);
+	 }
+	 
+	 public void add(Triangulo triangulo){
+		 listaTriangulos.add(triangulo);
+	 }
+	 public void add(Cuadrado cuadrado){
+		 listaCuadrados.add(cuadrado);
+	 }
+	 public void add(Pentagono pentagono){
+		 listaPentagonos.add(pentagono);
+	 }
+	 
+	 
+	 public void volverPintar(){
+		 repaint();  
+	 }
+	
+	public static void inicializar(){
+		
+	}
+}
+package figuras;
+
+import java.awt.Color;
+
+public abstract class Figura {
+	protected int[] posicion;
+	protected Color color;
+	
+	public Figura(){
+	}
+	
+	public Figura(Color color){
+		this.color = color;
+	}
+		
+	public int[] getPosicion(){
+		return posicion;
+	}
+	public void setColor(Color color){
+		this.color = color;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
+}
+package figuras2d;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Circulo extends Figura2D{
+	private double radio;
+	private double diametro;
+	
+	public Circulo(){
+		super();
+	}
+	
+	public Circulo(Color col){
+		super(col);
+	}
+		
+	public Circulo(Color col, int pos[]){
+		super(col,pos);
+	}
+	
+	public Circulo(Color col, int px, int py){
+		super(col,px,py);
+	}
+	
+	public Circulo(int pos[]){
+		super(pos);
+	}
+	
+	public Circulo(int px, int py){
+		super(px,py);
+	}
+	
+	
+	
+	protected void calcularPerimetro(){
+		perimetro = 2 * Math.PI * radio;
+	}
+	protected void calcularSuperficie(){
+		superficie = 2 * Math.PI * Math.pow(radio,2);
+	}
+	
+	public double getRadio() {
+		return radio;
+	}
+	
+	public void setRadio(double radio) {
+		this.radio = radio;
+		this.diametro = radio * 2;
+		calcularPerimetro();
+		calcularSuperficie();
+	}
+	
+	public double getDiametro() {
+		return diametro;
+	}
+	
+	public void setDiametro(double diametro) {
+		this.diametro = diametro;
+		this.radio = diametro/2;
+		calcularPerimetro();
+		calcularSuperficie();
+	}	
+	
+	public void pintar(Graphics g){
+		g.setColor(color);
+		int posx = (int) (posicion[0] - diametro / 2);
+		int posy = (int) (posicion[1] - diametro / 2);
+		g.fillOval(posx, posy, (int) diametro, (int) diametro);
+	}
+}
+package figuras2d;
+
+import java.awt.Color;
+
+public class Cuadrado extends PoligonoRegular {
+	
+	public int numLados = super.setNumLados(4);
+	
+	public Cuadrado(){
+		super();
+	}
+	
+	public Cuadrado(Color col){
+		super(col);
+	}
+		
+	public Cuadrado(Color col, int pos[]){
+		super(col,pos);
+	}
+	
+	public Cuadrado(Color col, int px, int py){
+		super(col,px,py);
+	}
+	
+	public Cuadrado(int pos[]){
+		super(pos);
+	}
+	
+	public Cuadrado(int px, int py){
+		super(px,py);
+	}
+	
+	protected void calcularSuperficie(){
+		superficie = longLados * longLados;
+	}
+}
+package figuras2d;
+
+import java.awt.Color;
+
+import figuras.Figura;
+
+public abstract class Figura2D extends Figura {
+	//protected int[] posicion = new int[2];
+	protected double perimetro;
+	protected double superficie;
+	
+	public Figura2D(){
+		super();
+	}
+	
+	public Figura2D(Color col){
+		super(col);
+	}
+		
+	public Figura2D(Color col, int pos[]){
+		super(col);
+		setPosicion(pos);
+	}
+	
+	public Figura2D(Color col, int px, int py){
+		super(col);
+		setPosicion(px,py);
+	}
+	
+	public Figura2D(int pos[]){
+		super();
+		setPosicion(pos);
+	}
+	
+	public Figura2D(int px, int py){
+		super();
+		setPosicion(px,py);
+	}
+	
+	protected abstract void calcularPerimetro();
+	protected abstract void calcularSuperficie();
+	
+	public double getPerimetro(){
+		return perimetro;
+	}
+	
+	public double getSuperficie(){
+		return superficie;
+	}
+	
+	public void setPosicion(int px, int py){
+		posicion = new int[2];
+		posicion[0] = px;
+		posicion[1] = py;
+	}
+	
+	public void setPosicion(int pos[]){
+		posicion = new int[2];		
+		posicion[0] = pos[0];
+		posicion[1] = pos[1];
+	}
+}
+package figuras2d;
+
+import java.awt.Color;
+
+public class Pentagono extends PoligonoRegular {
+	public int numLados = super.setNumLados(5);
+	
+	public Pentagono(){
+		super();
+	}
+	
+	public Pentagono(Color col){
+		super(col);
+	}
+		
+	public Pentagono(Color col, int pos[]){
+		super(col,pos);
+	}
+	
+	public Pentagono(Color col, int px, int py){
+		super(col,px,py);
+	}
+	
+	public Pentagono(int pos[]){
+		super(pos);
+	}
+	
+	public Pentagono(int px, int py){
+		super(px,py);
+	}
+		
+	public void calcularSuperficie(){
+		superficie = numLados * Math.pow(longLados,2);
+		double tangenciable = Math.tan(Math.toRadians(360 / numLados / 2));
+		
+		superficie = superficie / (4 * tangenciable);
+	}
+}
+package figuras2d;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public abstract class PoligonoRegular extends Figura2D{
+	protected int numLados;
+	protected double longLados = 0;
+	protected double radio = 0;
+	protected int coordx[];
+	protected int coordy[];
+	
+	public PoligonoRegular(){
+		super();
+	}
+	
+	public PoligonoRegular(Color col){
+		super(col);
+	}
+		
+	public PoligonoRegular(Color col, int pos[]){
+		super(col,pos);
+	}
+	
+	public PoligonoRegular(Color col, int px, int py){
+		super(col,px,py);
+	}
+	
+	public PoligonoRegular(int pos[]){
+		super(pos);
+	}
+	
+	public PoligonoRegular(int px, int py){
+		super(px,py);
+	}
+	
+	public int getNumLados(){
+		return numLados;
+	}
+	
+	public void calcularPerimetro(){
+		perimetro = longLados * this.numLados;
+	}
+	
+	protected abstract void calcularSuperficie();
+	
+	private void calcularPosiciones(){;
+		double theta = 2 * Math.PI  / numLados;
+		for (int i = 0; i < numLados; ++i) {
+		    coordx[i] = (int) (Math.cos(theta * i) * longLados + posicion[0]);
+		    coordy[i] = (int) (Math.sin(theta * i) * longLados + posicion[1]);
+		}
+	}
+	public void setLongLados(double lLados){
+		longLados = lLados;
+		calcularPosiciones();
+		calcularPerimetro();
+		calcularSuperficie();
+	}
+	
+	public double getLongLados(){
+		return longLados;
+	}
+	
+	protected int setNumLados(int num){
+		numLados = num;
+		coordx = new int[numLados];
+		coordy = new int[numLados];
+		return numLados;
+	}
+
+	public void pintar(Graphics g) {
+		g.setColor(color);
+		g.fillPolygon(coordx,coordy,numLados);
+	}
+}
+package figuras2d;
+
+import java.awt.Color;
+
+public class Triangulo extends PoligonoRegular{
+
+	public int numLados = super.setNumLados(3);
+	private double altura = 0;
+	
+	public Triangulo(){
+		super();
+	}
+	
+	public Triangulo(Color col){
+		super(col);
+	}
+		
+	public Triangulo(Color col, int pos[]){
+		super(col,pos);
+	}
+	
+	public Triangulo(Color col, int px, int py){
+		super(col,px,py);
+	}
+	
+	public Triangulo(int pos[]){
+		super(pos);
+	}
+	
+	public Triangulo(int px, int py){
+		super(px,py);
+	}
+		
+	public void calcularSuperficie(){
+		calcularAltura(); //por si hubiesen variado los datos
+		superficie = longLados * altura / 2;
+	}
+	
+	public double calcularAltura(){
+		
+		altura = Math.sqrt(3) / 2 * longLados;
+		
+		return altura;		
+	}
+
+	public double getAltura() {
+		return altura;
+	}
+}
+package figuras3d;
+
+import java.awt.Color;
+import figuras2d.Cuadrado;
+
+public class Cubo extends PoliedroRegular {
+	protected int numCaras = setNumCaras(4);
+	private Cuadrado figura2d;
+	
+	public Cubo(){
+		super();
+		generarCara();
+	}
+	
+	public Cubo(Color color){
+		super(color);
+		generarCara();
+	}
+	
+	private void generarCara(){
+		figura2d = new Cuadrado();
+	}	
+	
+	protected void calcularVolumen(){
+		volumen = Math.pow(figura2d.getLongLados(),3);
+	}
+	
+	protected void actualizarFigura(double lLados){
+		figura2d.setLongLados(lLados);
+		superficieCara = figura2d.getSuperficie();
+		calcularSuperficieTotal();
+		calcularVolumen();
+	}
+}
+package figuras3d;
+
+import java.awt.Color;
+import figuras2d.Pentagono;
+
+public class Dodecaedro extends PoliedroRegular {
+	protected int numCaras = setNumCaras(12);
+	private Pentagono figura2d;
+	
+	public Dodecaedro(){
+		super();
+		generarCara();
+	}
+	
+	public Dodecaedro(Color color){
+		super(color);
+		generarCara();
+	}
+	
+	private void generarCara(){
+		figura2d = new Pentagono();
+	}	
+	
+	protected void calcularVolumen(){
+		volumen =  1d / 4d  * (15 + 7 * Math.sqrt(5)) * Math.pow(figura2d.getLongLados(),3);
+	}
+	
+	protected void actualizarFigura(double lLados){
+		figura2d.setLongLados(lLados);
+		superficieCara = figura2d.getSuperficie();
+		calcularSuperficieTotal();
+		calcularVolumen();
+	}
+}
+package figuras3d;
+
+import java.awt.Color;
+
+public class Esfera extends Figura3D {
+	private double radio;
+	private double diametro;
+	
+	public Esfera(){
+		super();
+	}
+	
+	public Esfera(Color color){
+		super(color);
+	}
+	
+	protected void calcularSuperficieTotal(){
+		superficieTotal = 4 * Math.PI * Math.pow(radio, 2);
+	}
+	protected void calcularVolumen(){
+		System.out.println(radio);
+		volumen = (4 * Math.PI * Math.pow(radio, 3)) /  3d;
+	}
+	
+	public void setRadio(double radio){
+		this.radio = radio;
+		this.diametro = radio * 2d;
+		actualizarFigura();
+	}
+	
+	public double getRadio(){
+		return radio;
+	}
+	
+	public void setDiametro(double diametro){
+		this.radio = diametro / 2d;
+		this.diametro = diametro;
+		actualizarFigura();
+	}
+	
+	public double getDiametro(){
+		return diametro;
+	}
+	
+	protected void actualizarFigura(){
+		calcularSuperficieTotal();
+		calcularVolumen();
+	}
+}
+package figuras3d;
+
+import java.awt.Color;
+
+import figuras.Figura;
+
+public abstract class Figura3D extends Figura{
+	//public int[] posicion;
+	protected double superficieTotal;
+	protected double volumen;
+	
+	protected abstract void calcularSuperficieTotal();
+	protected abstract void calcularVolumen();
+	
+	public Figura3D(){
+		super();
+	}
+	
+	public Figura3D(Color color){
+		super(color);
+	}
+	
+	public double getSuperficieTotal(){
+		return superficieTotal;
+	}
+	
+	public double getVolumen(){
+		return volumen;
+	}
+	
+	public void setPosicion(int posx, int posy, int posz){
+		posicion = new int[3];
+		posicion[0] = posx;
+		posicion[1] = posy;
+		posicion[2] = posz;
+	}
+	
+	public void setPosicion(int[] posicion){
+		posicion = new int[3];
+		this.posicion[0] = posicion[0];
+		this.posicion[1] = posicion[1];
+		this.posicion[2] = posicion[2];
+	}
+	
+	
+}
+package figuras3d;
+
+import java.awt.Color;
+
+import figuras2d.Triangulo;
+
+public class Icosaedro extends PoliedroRegular {
+	protected int numCaras = setNumCaras(20);
+	private Triangulo figura2d;
+	
+	public Icosaedro(){
+		super();
+		generarCara();
+	}
+	
+	public Icosaedro(Color color){
+		super(color);
+		generarCara();
+	}
+	
+	private void generarCara(){
+		figura2d = new Triangulo();
+	}	
+	
+	protected void calcularVolumen(){
+		volumen = 5d / 12d * ( 3 + Math.sqrt(5)) * Math.pow(figura2d.getLongLados(),3);
+	}
+	
+	protected void actualizarFigura(double lLados){
+		figura2d.setLongLados(lLados);
+		superficieCara = figura2d.getSuperficie();
+		calcularSuperficieTotal();
+		calcularVolumen();
+	}
+}package figuras3d;
+
+import java.awt.Color;
+
+import figuras2d.Triangulo;
+
+public class Octaedro extends PoliedroRegular {
+	protected int numCaras = setNumCaras(8);
+	private Triangulo figura2d;
+	
+	public Octaedro(){
+		super();
+		generarCara();
+	}
+	
+	public Octaedro(Color color){
+		super(color);
+		generarCara();
+	}
+	
+	private void generarCara(){
+		figura2d = new Triangulo();
+	}	
+	
+	protected void calcularVolumen(){
+		volumen = 1d / 3d * Math.sqrt(2) * Math.pow(figura2d.getLongLados(),3);
+	}
+	
+	protected void actualizarFigura(double lLados){
+		figura2d.setLongLados(lLados);
+		superficieCara = figura2d.getSuperficie();
+		calcularSuperficieTotal();
+		calcularVolumen();
+	}
+}package figuras3d;
+
+import java.awt.Color;
+
+public abstract class PoliedroRegular extends Figura3D{
+	public int numCaras = 0;
+	protected double longLados = 0;
+	protected double superficieCara;
+	
+	public PoliedroRegular(){
+		super();
+	}
+	
+	public PoliedroRegular(Color color){
+		super(color);
+	}
+
+	protected void calcularSuperficieTotal(){
+		superficieTotal = superficieCara * numCaras;
+	}
+	
+	public int getNumCaras(){
+		return numCaras;
+	}
+	
+	protected abstract void calcularVolumen();
+	
+	public void setLongLados(double longLados){
+		this.longLados = longLados;
+		actualizarFigura(this.longLados);
+	}
+	public double getLongLados(){
+		return longLados;
+	}
+	
+	public double getSuperficieCara(){
+		return superficieCara;
+	}
+	
+	protected abstract void actualizarFigura(double lLados);
+	
+	public int setNumCaras(int num){
+		numCaras = num;
+		return numCaras;
+	}
+}
+package figuras3d;
+
+import java.awt.Color;
+
+import figuras2d.Triangulo;
+
+public class Tetaedro extends PoliedroRegular {
+	protected int numCaras = super.setNumCaras(4);
+	private Triangulo figura2d;
+	
+	public Tetaedro(){
+		super();
+		generarCara();
+	}
+	
+	public Tetaedro(Color color){
+		super(color);
+		generarCara();
+	}
+	
+	protected void generarCara(){
+		figura2d = new Triangulo();
+	}	
+
+	protected void calcularVolumen(){
+		volumen = Math.sqrt(2) * Math.pow(figura2d.getLongLados(),3) / 12d;
+	}
+		
+	protected void actualizarFigura(double lLados) {
+		figura2d.setLongLados(lLados);
+		superficieCara = figura2d.getSuperficie();
+		calcularSuperficieTotal();
+		calcularVolumen();		
+	}
+}
+package test;
+
+import java.awt.Color;
+
+import figuras2d.Circulo;
+import figuras2d.Cuadrado;
+import figuras2d.Pentagono;
+import figuras2d.Triangulo;
+
+public class Test2d {
+	public static void main(String[] Args){
+		int ar[];
+		
+		System.out.println("====CIRCULO====");
+		Circulo circulo = new Circulo();
+		circulo.setColor(Color.RED);
+		circulo.setPosicion(4,5);
+		circulo.setRadio(5);
+		System.out.println(circulo.getColor());
+		System.out.println(circulo.getRadio());
+		System.out.println(circulo.getDiametro());
+		System.out.println(circulo.getPerimetro());
+		System.out.println(circulo.getSuperficie());
+		ar = circulo.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);
+		
+		
+		System.out.println("====CUADRADO====");
+		Cuadrado cuadrado = new Cuadrado();
+		cuadrado.setColor(Color.RED);
+		cuadrado.setPosicion(4,5);
+		cuadrado.setLongLados(5);
+		System.out.println(cuadrado.getColor());
+		System.out.println(cuadrado.getLongLados());
+		System.out.println(cuadrado.numLados);
+		System.out.println(cuadrado.getPerimetro());
+		System.out.println(cuadrado.getSuperficie());
+		ar = cuadrado.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);	
+		
+		System.out.println("====PENTAGONO====");
+		Pentagono pentagono = new Pentagono();
+		pentagono.setColor(Color.RED);
+		pentagono.setPosicion(4,5);
+		pentagono.setLongLados(5);
+		System.out.println(pentagono.getColor());
+		System.out.println(pentagono.getLongLados());
+		System.out.println(pentagono.numLados);
+		System.out.println(pentagono.getPerimetro());
+		System.out.println(pentagono.getSuperficie());
+		ar = pentagono.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);
+		
+		System.out.println("====TRIANGULO====");
+		Triangulo triangulo = new Triangulo();
+		triangulo.setColor(Color.RED);
+		triangulo.setPosicion(4,5);
+		triangulo.setLongLados(5);
+		System.out.println(triangulo.getColor());
+		System.out.println(triangulo.getLongLados());
+		System.out.println(triangulo.numLados);
+		System.out.println(triangulo.getPerimetro());
+		System.out.println(triangulo.getSuperficie());
+		ar = triangulo.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);			
+	}
+	
+}
+package test;
+
+import java.awt.Color;
+
+import figuras3d.Cubo;
+import figuras3d.Dodecaedro;
+import figuras3d.Esfera;
+import figuras3d.Icosaedro;
+import figuras3d.Octaedro;
+import figuras3d.Tetaedro;
+
+public class Test3d {
+
+	public static void main(String[] args) {
+		int ar[];
+		double longi = 2;
+
+		//Comenar y descomentar según corresponda
+		
+//		Cubo figura3d = new Cubo(); //OK
+//		Dodecaedro figura3d = new Dodecaedro(); 
+//		Esfera figura3d = new Esfera(); 
+//		Isocaedro figura3d = new Isocaedro();
+//		Octaedro figura3d = new Octaedro(); //Falla
+		Tetaedro figura3d = new Tetaedro(); //falla
+		
+		figura3d.setLongLados(longi); //NO esfera
+//		figura3d.setRadio(longi); //Solo esfera
+//		figura3d.setDiametro(longi); //solo esfera
+		figura3d.setPosicion(100,200,300);
+		figura3d.setColor(Color.BLUE);
+		
+		System.out.println(figura3d.getColor());
+		ar = figura3d.getPosicion();
+		System.out.println(ar[0]);
+		System.out.println(ar[1]);
+		System.out.println(ar[2]);
+		System.out.println(figura3d.getVolumen());
+		System.out.println(figura3d.getSuperficieCara()); //No esfera
+		System.out.println(figura3d.getLongLados()); //No esfera
+//		System.out.println(figura3d.getRadio()); //Solo esfera
+//		System.out.println(figura3d.getDiametro()); //Solo esfera
+		System.out.println(figura3d.getSuperficieTotal()); 
+	}
+
+}

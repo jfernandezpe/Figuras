@@ -1,3 +1,4 @@
+// .src/figuras2d/Figura2D.java
 package figuras2d;
 
 import java.awt.Color;
@@ -52,7 +53,6 @@ public abstract class Figura2D extends Figura {
 		posicion = new int[2];
 		posicion[0] = px;
 		posicion[1] = py;
-		System.out.println("DD"+posicion[1]);
 	}
 	
 	public void setPosicion(int pos[]){

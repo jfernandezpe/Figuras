@@ -1,9 +1,20 @@
+// .src/ejecucion/FigurasGeometricas.java
 package ejecucion;
 
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+
 import consoleUI.UtilsUI; // https://github.com/jfernandezpe/Utils
+import figuras2d.Circulo;
+import figuras2d.Cuadrado;
+import figuras2d.Pentagono;
+import figuras2d.Triangulo;
 
 public class FigurasGeometricas {
+	private static Ventana ventana;
 	public static void main(String[] Args){
+		ventana = crearVentana();
 		int opcion = 0;
 		while (opcion == 0) {
 			String texto = "Elige una opción: \n"
@@ -40,7 +51,7 @@ public class FigurasGeometricas {
 		while (opcion == 0) {
 			String texto = "¿Qué figura quieres calcular? \n"
 					+ "1) Circulo \n"
-					//+ "2) Figuras 2D\n"
+					//+ "2) Línea\n"
 					+ "3) Triangulo\n"
 					+ "4) Cuadrado\n"
 					+ "5) Pentagono\n"
@@ -54,24 +65,31 @@ public class FigurasGeometricas {
 					opcion = 0;
 					break;
 				case 1:
-					Figuras2d.circulo();
+					Circulo circulo = Figuras2d.circulo();
+					ventana.add(circulo);
+					ventana.volverPintar();
 					opcion = 0;
 					break;
 				case 3: 
-					Figuras2d.triangulo();
+					Triangulo triangulo = Figuras2d.triangulo();
+					ventana.add(triangulo);
+					ventana.volverPintar();
 					opcion = 0;
 					break;
 				case 4: 
-					Figuras2d.cuadrado();
+					Cuadrado cuadrado = Figuras2d.cuadrado();
+					ventana.add(cuadrado);
+					ventana.volverPintar();
 					opcion = 0;
 					break;
 				case 5: 
-					Figuras2d.pentagono();
+					Pentagono pentagono = Figuras2d.pentagono();
+					ventana.add(pentagono);
+					ventana.volverPintar();
 					opcion = 0;
 					break;
 				case 99:
 					opcion = 99;
-					//System.out.println("¡Hasta luego!");	
 			}
 				
 		}
@@ -122,9 +140,19 @@ public class FigurasGeometricas {
 					break;
 				case 99:
 					opcion = 99;
-					//System.out.println("¡Hasta luego!");	
 			}
 					
 		}
+	}
+	
+	public static Ventana crearVentana(){
+		JFrame frame = new JFrame("frame");
+		Ventana ventana = new Ventana();
+		frame.add(ventana, BorderLayout.CENTER);
+		frame.setSize(800,600);
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setTitle("Figuras 2D");
+		return ventana;
 	}
 }

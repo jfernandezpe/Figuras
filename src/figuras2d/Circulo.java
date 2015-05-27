@@ -1,6 +1,8 @@
+// .src/figuras2d/Circulo.java
 package figuras2d;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 public class Circulo extends Figura2D{
 	private double radio;
@@ -60,4 +62,11 @@ public class Circulo extends Figura2D{
 		calcularPerimetro();
 		calcularSuperficie();
 	}	
+	
+	public void pintar(Graphics g){
+		g.setColor(color);
+		int posx = (int) (posicion[0] - diametro / 2);
+		int posy = (int) (posicion[1] - diametro / 2);
+		g.fillOval(posx, posy, (int) diametro, (int) diametro);
+	}
 }

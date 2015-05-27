@@ -1,10 +1,15 @@
+// .src/figuras2d/PoligonoRegular.java
 package figuras2d;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 public abstract class PoligonoRegular extends Figura2D{
-	public int numLados;
+	protected int numLados;
 	protected double longLados = 0;
+	protected double radio = 0;
+	protected int coordx[];
+	protected int coordy[];
 	
 	public PoligonoRegular(){
 		super();
@@ -38,10 +43,18 @@ public abstract class PoligonoRegular extends Figura2D{
 		perimetro = longLados * this.numLados;
 	}
 	
-	public abstract void calcularSuperficie();
+	protected abstract void calcularSuperficie();
 	
+	private void calcularPosiciones(){;
+		double theta = 2 * Math.PI  / numLados;
+		for (int i = 0; i < numLados; ++i) {
+		    coordx[i] = (int) (Math.cos(theta * i) * longLados + posicion[0]);
+		    coordy[i] = (int) (Math.sin(theta * i) * longLados + posicion[1]);
+		}
+	}
 	public void setLongLados(double lLados){
 		longLados = lLados;
+		calcularPosiciones();
 		calcularPerimetro();
 		calcularSuperficie();
 	}
@@ -52,6 +65,13 @@ public abstract class PoligonoRegular extends Figura2D{
 	
 	protected int setNumLados(int num){
 		numLados = num;
+		coordx = new int[numLados];
+		coordy = new int[numLados];
 		return numLados;
+	}
+
+	public void pintar(Graphics g) {
+		g.setColor(color);
+		g.fillPolygon(coordx,coordy,numLados);
 	}
 }

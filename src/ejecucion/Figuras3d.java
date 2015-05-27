@@ -1,3 +1,4 @@
+// .src/ejecucion/Figuras3d.java
 package ejecucion;
 
 import java.awt.Color;
@@ -30,7 +31,6 @@ public class Figuras3d {
 		Esfera figura3d = new Esfera(color);
 		figura3d.setPosicion(posx, posy, posz);
 		figura3d.setRadio(longLados);
-		System.out.println(figura3d.getClass());
 		int[] posicion = figura3d.getPosicion();
 
 		System.out.println("Calculo una "+nombre);
@@ -52,7 +52,6 @@ public class Figuras3d {
 		Tetaedro figura3d = new Tetaedro(color);
 		figura3d.setPosicion(posx, posy, posz);
 		figura3d.setLongLados(longLados);
-		System.out.println(figura3d.getClass());
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 	}
 
@@ -68,7 +67,6 @@ public class Figuras3d {
 		Cubo figura3d = new Cubo(color);
 		figura3d.setPosicion(posx, posy, posz);
 		figura3d.setLongLados(longLados);
-		System.out.println(figura3d.getClass());
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 		
 	}
@@ -85,7 +83,6 @@ public class Figuras3d {
 		Octaedro figura3d = new Octaedro(color);
 		figura3d.setPosicion(posx, posy, posz);
 		figura3d.setLongLados(longLados);
-		System.out.println(figura3d.getClass());
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 	
 	}
@@ -102,7 +99,6 @@ public class Figuras3d {
 		Dodecaedro figura3d = new Dodecaedro(color);
 		figura3d.setPosicion(posx, posy, posz);
 		figura3d.setLongLados(longLados);
-		System.out.println(figura3d.getClass());
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());		
 	}
 
@@ -118,7 +114,6 @@ public class Figuras3d {
 		Icosaedro figura3d = new Icosaedro(color);
 		figura3d.setPosicion(posx, posy, posz);
 		figura3d.setLongLados(longLados);
-		System.out.println(figura3d.getClass());
 		imprimirPoliedro(figura3d.getNumCaras(), nombre, figura3d.getColor(), figura3d.getPosicion(), figura3d.getLongLados(), figura3d.getVolumen(), figura3d.getSuperficieTotal(),figura3d.getSuperficieCara());				
 	}
 	
